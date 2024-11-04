@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Carrinho de Compras</h1>
+    
+    <div class="cart">
+        <table>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Preço de cada produto</th>
+                    <th>Preço Total</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Itens do carrinho serão inseridos dinamicamente aqui -->
+            </tbody>
+        </table>
+
+        <div class="actions">
+            <button onclick="clearCart()">Limpar Carrinho</button>
+        </div>
+
+        <div class="total">
+            <h2>Valor Total: R$ <span id="total-value">0.00</span></h2>
+            <input type="text" id="coupon-code" placeholder="Insira o cupom de desconto">
+            <button onclick="applyDiscount()">Aplicar Cupom</button>
+        </div>
+    </div>
+
+    <div class="add-product">
+        <h2>Adicionar Novo Produto</h2>
+        <form onsubmit="addProduct(event)">
+            <input type="text" id="product-name" placeholder="Nome do Produto" required>
+            <input type="number" id="product-price" placeholder="Preço do Produto (R$)" required min="0" step="0.01">
+            <input type="number" id="product-quantity" placeholder="Quantidade" required min="1">
+            <button type="submit">Adicionar ao Carrinho</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
